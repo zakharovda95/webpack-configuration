@@ -1,14 +1,16 @@
-import Card from "./components/Card";
-import {createCard} from "./methods/clickCounter";
+import HeaderComponent from "./components/layout/Header/Header.component.js";
+import './index.css'
+export default class Main {
+    constructor() {
+        this.app = document.querySelector('#app');
+        this.header = new HeaderComponent().Element;
+    }
 
-const post = new Card('Какой то заголовок');
+    render() {
+        this.app.append(this.header)
+    }
 
-const card = createCard('Какое т отакое себе функциональное программирование')
+}
 
-console.log(post.toString())
-
-console.log(card.toString())
-
-card.getSomeStr()
-
-console.log(card.date)
+const main = new Main();
+main.render();

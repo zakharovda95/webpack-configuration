@@ -1,0 +1,13 @@
+@import '~normalize-css';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background: aquamarine;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
