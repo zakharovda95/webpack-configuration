@@ -1,4 +1,4 @@
-import { hyperScript } from "../../../helpers/lib/hyper-script.method.js";
+import { hyperScript } from "@/helpers/lib/hyper-script.method";
 
 export default class HeaderComponent {
 
@@ -6,7 +6,7 @@ export default class HeaderComponent {
         return hyperScript(`
         <div class="header bg-black">
             <div class="header_wrapper">
-                <p> Какой то ХЕДЕРHHHHHHHHHHHHH </p>
+                <p> Какой то ХЕДЕР! </p>
             </div>
         </div>
         `)

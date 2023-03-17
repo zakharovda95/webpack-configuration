@@ -5,7 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
-    background: aquamarine;
+    background: #e8e8e8;
 }
 
 @tailwind base;
