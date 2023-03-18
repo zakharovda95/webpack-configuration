@@ -6,7 +6,6 @@ export default class DefaultLayout {
   private readonly layout: Element;
   constructor() {
     this.layout = this.createElement();
-    this.render();
   }
   private createElement(): Element {
     return hyperScript(`
@@ -16,13 +15,21 @@ export default class DefaultLayout {
         `);
   }
 
-  private render(): void {
+  public render(): void {
     const header: Element = new HeaderComponent().Element;
     this.layout.prepend(header);
 
     const layoutContainer: Element = this.layout.querySelector('#container');
-    const taskList: Element = new TaskListComponent().Element;
+    const taskListInstance: TaskListComponent = new TaskListComponent();
+    const taskList: Element = taskListInstance.Element;
+
     layoutContainer.append(taskList);
+    taskListInstance.render();
+
+    const addBtn = document.querySelector('#add-btn');
+    addBtn.addEventListener('click', () => {
+      taskListInstance.addTask();
+    });
   }
 
   public get Element(): Element {

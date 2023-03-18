@@ -4,15 +4,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import DefaultLayout from '@/layouts/Default.layout';
 
 export default class Main {
-  constructor() {
-    this.app = document.querySelector('#app');
-    this.layout = new DefaultLayout().Element;
-  }
+  init() {
+    const app = document.querySelector('#app');
+    const layoutInstance = new DefaultLayout();
+    const layout = layoutInstance.Element;
 
-  render() {
-    this.app.append(this.layout);
+    app.append(layout);
+    layoutInstance.render();
   }
 }
 
 const main = new Main();
-main.render();
+main.init();

@@ -3,8 +3,10 @@ import { ITaskData } from '../../../helpers/types/task-data.interface';
 
 export default class TaskListItemComponent {
   private readonly task: ITaskData;
+  private readonly taskListItem: Element;
   constructor(task: ITaskData) {
     this.task = task;
+    this.taskListItem = this.createElement();
   }
   private createElement(): Element {
     return hyperScript(`
@@ -25,7 +27,7 @@ export default class TaskListItemComponent {
         `);
   }
 
-  public get render(): Element {
-    return this.createElement();
+  public get Element(): Element {
+    return this.taskListItem;
   }
 }

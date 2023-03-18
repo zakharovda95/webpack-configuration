@@ -2,17 +2,38 @@ import { hyperScript } from '../../../helpers/lib/hyper-script.method';
 import TaskListItemComponent from '../task-list-item/TaskListItem.component';
 import { ITaskData } from '../../../helpers/types/task-data.interface';
 
+const mockData: ITaskData[] = [
+  {
+    id: 1,
+    important: true,
+    title: 'Какая то важная задача',
+    text: 'Сходить покурить, покушать, покакать и попукать минимум 2 раза за рабочий день',
+    date: JSON.stringify(Date.now()),
+  },
+  {
+    id: 2,
+    important: false,
+    title: 'Какая то не очень важная задача',
+    text: 'Работать в поте лица весь день',
+    date: JSON.stringify(Date.now()),
+  },
+];
+
+const mockDataItem: ITaskData = {
+  id: 3,
+  important: false,
+  title: 'Какая то не очень важная задача',
+  text: 'Работать в поте лица весь день',
+  date: JSON.stringify(Date.now()),
+};
+
 export default class TaskListComponent {
-  private taskList: ITaskData[] = [
-    {
-      id: 1,
-      important: true,
-      title: 'Какая то важная задача',
-      text: 'Сходить покурить, покушать, покакать и попукать минимум 2 раза за день',
-      date: JSON.stringify(Date.now()),
-    },
-  ];
-  private listGroup: Element;
+  private taskList: ITaskData[] = mockData;
+  private readonly listGroup: Element;
+
+  constructor() {
+    this.listGroup = this.createElement();
+  }
 
   private createElement(): Element {
     return hyperScript(`
@@ -20,42 +41,23 @@ export default class TaskListComponent {
         `);
   }
 
-  private render() {
+  public render(): void {
+    while (this.listGroup.firstChild) {
+      this.listGroup.removeChild(this.listGroup.firstChild);
+    }
+
     this.taskList.forEach(task => {
-      const listItem: Element = new TaskListItemComponent(task).render;
+      const listItem: Element = new TaskListItemComponent(task).Element;
       this.listGroup.append(listItem);
     });
   }
 
-  private addTask() {
-    const mockTask: ITaskData = {
-      id: 1,
-      important: true,
-      title: 'Какая то важная задача',
-      text: 'Сходить покурить, покушать, покакать и попукать минимум 2 раза за день',
-      date: JSON.stringify(Date.now()),
-    };
-
-    this.taskList.push(mockTask);
+  public addTask(): void {
+    this.taskList.push(mockDataItem);
     this.render();
   }
 
-  private init(): void {
-    this.listGroup = this.createElement();
-    this.render();
-
-    const addButton: Element = document.querySelector('#add-btn');
-    console.log(addButton);
-    if (addButton) {
-      addButton.addEventListener('click', () => {
-        this.addTask();
-        console.log('dsfsdfsdfsdf');
-      });
-    }
-  }
-
-  public get Element() {
-    this.init();
+  public get Element(): Element {
     return this.listGroup;
   }
 }
