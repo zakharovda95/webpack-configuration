@@ -1,6 +1,12 @@
 import { hyperScript } from '../../../helpers/lib/hyper-script.method';
 import './Header.component.scss';
 export default class HeaderComponent {
+  private readonly header: Element;
+
+  constructor() {
+    this.header = this.createElement();
+  }
+
   private createElement(): Element {
     return hyperScript(`
     <nav class="navbar navbar-expand navbar-dark bg-dark">
@@ -26,6 +32,6 @@ export default class HeaderComponent {
   }
 
   public get Element(): Element {
-    return this.createElement();
+    return this.header;
   }
 }
