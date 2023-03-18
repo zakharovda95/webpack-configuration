@@ -1,8 +1,7 @@
-import { hyperScript } from "@/helpers/lib/hyper-script.method";
-
+import { hyperScript } from "../../../helpers/lib/hyper-script.method";
 export default class HeaderComponent {
 
-    render() {
+    private render(): Element {
         return hyperScript(`
         <div class="header bg-black">
             <div class="header_wrapper">
@@ -12,7 +11,7 @@ export default class HeaderComponent {
         `)
     }
 
-    get Element() {
+    public get Element(): Element {
         return this.render();
     }
 }

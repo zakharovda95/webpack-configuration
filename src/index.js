@@ -1,5 +1,6 @@
-import HeaderComponent from "./components/layout/Header/Header.component.js";
-import './index.css'
+import HeaderComponent from "@cmp/layout/Header/Header.component";
+import '@/index.css'
+
 export default class Main {
     constructor() {
         this.app = document.querySelector('#app');
