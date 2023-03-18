@@ -1,16 +1,17 @@
-import HeaderComponent from "@cmp/layout/Header/Header.component";
-import '@/index.css'
+import '@/index.scss';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DefaultLayout from '@/layouts/Default.layout';
 
 export default class Main {
-    constructor() {
-        this.app = document.querySelector('#app');
-        this.header = new HeaderComponent().Element;
-    }
+  constructor() {
+    this.app = document.querySelector('#app');
+    this.layout = new DefaultLayout().Element;
+  }
 
-    render() {
-        this.app.append(this.header)
-    }
-
+  render() {
+    this.app.append(this.layout);
+  }
 }
 
 const main = new Main();

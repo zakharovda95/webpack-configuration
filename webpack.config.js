@@ -7,7 +7,7 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -91,9 +91,9 @@ const plugins = () => {
   ];
 
   // какая то фигня для анализа бандлов, не обязательно в конфигурации
-  if (isProd) {
-    base.push(new BundleAnalyzerPlugin());
-  }
+  // if (isProd) {
+  //   base.push(new BundleAnalyzerPlugin());
+  // }
 
   return base;
 };
@@ -128,12 +128,9 @@ module.exports = {
 
   // автозапуск и авторелоадинг с помощью плагина вебпак-дев-сервер
   devServer: {
-    port: 4200,
+    port: isDev ? 4201 : 4200,
     hot: isDev,
   },
-
-  // исходные карты
-  devtool: isDev ? 'source-map' : '',
 
   //подключение плагинов, перенос ХТМЛ из срк в дист и очистка старых чанков
   plugins: plugins(),
