@@ -104,7 +104,7 @@ module.exports = {
 
   // точка входа, может быть несколько, если бабел - в майн добавляем полифил
   entry: {
-    main: ['@babel/polyfill', './index.js'],
+    main: ['@babel/polyfill', './index.ts'],
   },
 
   // точка выхода
@@ -115,7 +115,7 @@ module.exports = {
 
   resolve: {
     // указать тут, и можно не писать расширения при импортах
-    extensions: ['.js', '.css', '.html', '.ts'],
+    extensions: ['.js', '.html', '.ts'],
     // алиас как во вью
     alias: {
       '@': path.resolve(__dirname, 'src'),

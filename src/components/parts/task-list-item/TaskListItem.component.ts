@@ -1,18 +1,27 @@
 import { hyperScript } from '../../../helpers/lib/hyper-script.method';
-import { ITaskData } from '../../../helpers/types/task-data.interface';
+import { ITaskData } from '../../../helpers/interfaces/task-data.interface';
+import { ITaskListItem } from '../../../helpers/interfaces/app.interface';
+import './TaskListItem.component.scss';
 
-export default class TaskListItemComponent {
+export default class TaskListItemComponent implements ITaskListItem {
   private readonly task: ITaskData;
-  private readonly taskListItem: Element;
+  private readonly component: Element;
   constructor(task: ITaskData) {
     this.task = task;
-    this.taskListItem = this.createElement();
+    this.component = this.createElement();
   }
   private createElement(): Element {
     return hyperScript(`
         <div class="card">
             <h5 class="card-header">
                ${this.task.important ? 'Важное задание' : 'Обычное задание'}
+               
+               <button 
+                    id="remove-btn" 
+                    class="btn btn-danger btn-sm" 
+                    data-id="${this.task.id}">
+                        &#10006;
+               </button>
             </h5>
             
             <div class="card-body">
@@ -28,6 +37,6 @@ export default class TaskListItemComponent {
   }
 
   public get Element(): Element {
-    return this.taskListItem;
+    return this.component;
   }
 }

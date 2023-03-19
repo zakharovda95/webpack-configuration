@@ -14,14 +14,14 @@ export default class HeaderComponent {
             <form class="form-inline bg-dark">
             <input class="form-control mr-sm-2" type="search" placeholder="Поиск таска">
             
-            <div class="dropdown bg-dark position-relative">
+            <div id="dropdown" class="dropdown bg-dark position-relative">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Сортировка
                 </button>
                 
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <div class="dropdown-item">Сначала новые</div>
-                    <div class="dropdown-item">Сначала старые</div>
+                    <div class="dropdown-item" data-value="newer">Сначала новые</div>
+                    <div class="dropdown-item" data-value="older">Сначала старые</div>
                 </div>
             </div>
         </form>
