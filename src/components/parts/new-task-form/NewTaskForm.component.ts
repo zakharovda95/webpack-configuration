@@ -1,40 +1,53 @@
-import { IComponent } from '../../../helpers/interfaces/app.interface';
+import { INewTaskForm } from '../../../helpers/interfaces/app.interface';
 import { hyperScript } from '../../../helpers/lib/hyper-script.method';
+import { ITaskFormData } from '../../../helpers/interfaces/task-data.interface';
 
-export default class NewTaskFormComponent implements IComponent {
+export default class NewTaskFormComponent implements INewTaskForm {
   private readonly component: Element;
 
   constructor() {
     this.component = this.createElement();
   }
+
   private createElement(): Element {
     return hyperScript(`
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            
-                <div class="modal-body">
-                    Модал боди
-                </div>
-            
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
+    <form>
+        <div class="form-group">
+            <label for="exampleFormControlInput1">Название таска</label>
+            <input id="title-input" type="text" class="form-control" placeholder="Введите название">
         </div>
-    </div>
-`);
+        
+        <div class="form-group mt-3">
+            <label for="exampleFormControlTextarea1">Описание таска</label>
+            <textarea id="text-input" class="form-control" rows="5" placeholder="Введите описание" ></textarea>
+        </div>
+        
+        <div class="form-check form-check-inline mt-3">
+            <input id="important-input" class="form-check-input" id="inlineCheckbox1" type="checkbox" value="important">
+            <label class="form-check-label" for="inlineCheckbox1">Важное</label>
+        </div>
+        
+        <br>
+        
+        <button type="button" class="btn btn-success mt-3">Создать</button>
+    </form>
+    `);
   }
 
-  public get Element(): Element {
+  public createTask(): ITaskFormData {
+    const titleInput: Element = this.component.querySelector('#title-input');
+    const textInput: Element = this.component.querySelector('#text-input');
+    const importantInput: Element =
+      this.component.querySelector('#important-input');
+
+    return {
+      title: titleInput['value'],
+      text: textInput['value'],
+      important: importantInput['checked'],
+    };
+  }
+
+  public get Element() {
     return this.component;
   }
 }

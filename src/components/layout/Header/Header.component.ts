@@ -26,7 +26,7 @@ export default class HeaderComponent {
             </div>
         </form>
         
-        <button id="add-btn" class="btn btn-warning my-2 my-sm-0" type="button" data-target="#exampleModalCenter" data-toggle="modal">Новый таск</button>
+        <button id="add-btn" class="btn btn-warning my-2 my-sm-0" type="button" data-bs-target="#exampleModalCenter" data-bs-toggle="modal">Новый таск</button>
     </nav>
         `);
   }

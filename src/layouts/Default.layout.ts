@@ -2,7 +2,7 @@ import { hyperScript } from '../helpers/lib/hyper-script.method';
 import HeaderComponent from '../components/layout/Header/Header.component';
 import TaskListComponent from '../components/parts/task-list/TaskList.component';
 import { IDefaultLayout } from '../helpers/interfaces/app.interface';
-import NewTaskFormComponent from '../components/parts/new-task-form/NewTaskForm.component';
+import NewTaskFormModalComponent from '../components/parts/new-task-form-modal/NewTaskFormModal.component';
 
 export default class DefaultLayout implements IDefaultLayout {
   private readonly component: Element;
@@ -11,7 +11,7 @@ export default class DefaultLayout implements IDefaultLayout {
   private readonly header: Element;
   private readonly taskListInstance: TaskListComponent;
   private readonly taskList: Element;
-  private readonly modalInstance: NewTaskFormComponent;
+  private readonly modalInstance: NewTaskFormModalComponent;
   private readonly modal: Element;
   constructor() {
     this.component = this.createElement();
@@ -19,7 +19,7 @@ export default class DefaultLayout implements IDefaultLayout {
     this.header = this.headerInstance.Element;
     this.taskListInstance = new TaskListComponent();
     this.taskList = this.taskListInstance.Element;
-    this.modalInstance = new NewTaskFormComponent();
+    this.modalInstance = new NewTaskFormModalComponent();
     this.modal = this.modalInstance.Element;
     this.layoutContainer = this.component.querySelector('#container');
   }
@@ -33,12 +33,6 @@ export default class DefaultLayout implements IDefaultLayout {
 
   private renderHeader() {
     this.component.prepend(this.header);
-
-    const addBtn: Element = this.header.querySelector('#add-btn');
-
-    addBtn.addEventListener('click', () => {
-      this.taskListInstance.add();
-    });
 
     const dropdown: Element = this.header.querySelector('#dropdown');
     let sortValue: string = '';
@@ -82,11 +76,13 @@ export default class DefaultLayout implements IDefaultLayout {
 
   private renderModal() {
     this.layoutContainer.append(this.modal);
+    this.modalInstance.render();
   }
 
   public render(): void {
     this.renderHeader();
     this.renderTaskList();
+    this.renderModal();
   }
 
   public get Element(): Element {

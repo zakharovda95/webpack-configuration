@@ -43,9 +43,9 @@ export default class TaskListComponent implements ITaskList {
     });
   }
 
-  public add(): void {
-    // this.taskList.push(mockDataItem);
-    // this.render();
+  public add(task: ITaskData): void {
+    this.taskList.push(task);
+    this.render();
   }
 
   public remove(id: string): void {

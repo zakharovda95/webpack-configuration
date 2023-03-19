@@ -1,4 +1,4 @@
-import { ITaskData } from './task-data.interface';
+import { ITaskData, ITaskFormData } from './task-data.interface';
 import HeaderComponent from '../../components/layout/Header/Header.component';
 import TaskListComponent from '../../components/parts/task-list/TaskList.component';
 
@@ -37,8 +37,12 @@ export interface ITaskListItem extends IComponent {
 export interface ITaskList extends IRenderComponent {
   taskList: ITaskData[];
   clearBeforeRender();
-  add(): void;
+  add(task: ITaskData): void;
   remove(id: string): void;
   filter(filterValue: string): void;
   sort(sortValue: string): void;
+}
+
+export interface INewTaskForm extends IComponent {
+  createTask(): ITaskFormData;
 }
