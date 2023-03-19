@@ -39,6 +39,6 @@ export interface ITaskList extends IRenderComponent {
   clearBeforeRender();
   add(): void;
   remove(id: string): void;
-  filter(): void;
+  filter(filterValue: string): void;
   sort(sortValue: string): void;
 }

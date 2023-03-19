@@ -12,7 +12,7 @@ export default class HeaderComponent {
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Simple TODO App!</a>
             <form class="form-inline bg-dark">
-            <input class="form-control mr-sm-2" type="search" placeholder="Поиск таска">
+            <input id="search-input" class="form-control mr-sm-2" type="search" placeholder="Поиск таска">
             
             <div id="dropdown" class="dropdown bg-dark position-relative">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -26,7 +26,7 @@ export default class HeaderComponent {
             </div>
         </form>
         
-        <button id="add-btn" class="btn btn-warning my-2 my-sm-0" type="submit">Новый таск</button>
+        <button id="add-btn" class="btn btn-warning my-2 my-sm-0" type="button" data-target="#exampleModalCenter" data-toggle="modal">Новый таск</button>
     </nav>
         `);
   }

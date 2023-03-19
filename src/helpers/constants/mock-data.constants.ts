@@ -7,13 +7,13 @@ export const mockDataConstants: ITaskData[] = [
     important: true,
     title: 'Какая то важная задача',
     text: 'Сходить поспать, поесть, погулять, снова поспать, погладить морских свинок',
-    date: getLocaleDateNow('ru'),
+    date: '13.03.2023',
   },
   {
     id: 2,
     important: false,
     title: 'Какая то не очень важная задача',
     text: 'Работать в поте лица весь день',
-    date: getLocaleDateNow('ru'),
+    date: '18.03.2023',
   },
 ];

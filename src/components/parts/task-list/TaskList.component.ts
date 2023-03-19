@@ -15,15 +15,17 @@ const mockDataItem: ITaskData = {
 
 export default class TaskListComponent implements ITaskList {
   private taskList: ITaskData[] = mockDataConstants;
+  private readonly taskListProxy: ITaskData[];
   private readonly component: Element;
 
   constructor() {
     this.component = this.createElement();
+    this.taskListProxy = [...this.taskList];
   }
 
   private createElement(): Element {
     return hyperScript(`
-            <div class="list-group"></div>
+            <div class="list-group gap-3 mt-3"></div>
         `);
   }
 
@@ -42,8 +44,8 @@ export default class TaskListComponent implements ITaskList {
   }
 
   public add(): void {
-    this.taskList.push(mockDataItem);
-    this.render();
+    // this.taskList.push(mockDataItem);
+    // this.render();
   }
 
   public remove(id: string): void {
@@ -52,19 +54,33 @@ export default class TaskListComponent implements ITaskList {
     this.render();
   }
 
-  public filter(): void {}
+  public filter(filterValue: string): void {
+    this.clearBeforeRender();
+
+    if (!filterValue) {
+      this.taskList = this.taskListProxy;
+    } else {
+      this.taskList = this.taskList.filter(task => {
+        return (
+          task.title.toLowerCase().includes(filterValue.toLowerCase()) ||
+          task.text.toLowerCase().includes(filterValue.toLowerCase()) ||
+          task.date.toLowerCase().includes(filterValue.toLowerCase()) ||
+          `Задача-${task.id}.`.toLowerCase().includes(filterValue.toLowerCase())
+        );
+      });
+    }
+
+    this.render();
+  }
 
   public sort(sortValue: string): void {
-    console.log(sortValue);
     this.taskList = this.taskList.sort((a: ITaskData, b: ITaskData) => {
       if (sortValue === 'older') {
-        return b.id - a.id;
-      } else {
         return a.id - b.id;
+      } else {
+        return b.id - a.id;
       }
     });
-
-    console.log(this.taskList);
     this.render();
   }
 
