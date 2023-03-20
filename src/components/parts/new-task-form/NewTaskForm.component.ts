@@ -29,7 +29,7 @@ export default class NewTaskFormComponent implements INewTaskForm {
         
         <br>
         
-        <button type="button" class="btn btn-success mt-3">Создать</button>
+        <button id="add-task-btn" type="button" class="btn btn-success mt-3">Создать</button>
     </form>
     `);
   }

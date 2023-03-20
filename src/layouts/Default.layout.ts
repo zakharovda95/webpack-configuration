@@ -42,7 +42,7 @@ export default class DefaultLayout implements IDefaultLayout {
       if (targetElement.closest('.dropdown-item')) {
         const dropdownPreview = dropdown.querySelector('#dropdownMenuButton');
         dropdownPreview.textContent = targetElement.textContent;
-        sortValue = targetElement.dataset.value;
+        sortValue = targetElement['dataset'].value;
 
         this.taskListInstance.sort(sortValue);
       }
@@ -50,7 +50,7 @@ export default class DefaultLayout implements IDefaultLayout {
 
     const searchInput = this.header.querySelector('#search-input');
     searchInput.addEventListener('input', (e: InputEvent) => {
-      const targetValue = e.target.value;
+      const targetValue = e.target['value'];
       this.taskListInstance.filter(targetValue);
 
       if (!targetValue) {
@@ -67,7 +67,7 @@ export default class DefaultLayout implements IDefaultLayout {
       const targetElement = e.target as Element;
 
       if (targetElement.closest('#remove-btn')) {
-        const id: string = targetElement.dataset.id;
+        const id: string = targetElement['dataset'].id;
 
         this.taskListInstance.remove(id);
       }
@@ -77,6 +77,10 @@ export default class DefaultLayout implements IDefaultLayout {
   private renderModal() {
     this.layoutContainer.append(this.modal);
     this.modalInstance.render();
+    const addBtn: Element = this.modal.querySelector('#add-task-btn');
+    addBtn.addEventListener('click', () => {
+      this.taskListInstance.add(this.modalInstance.task);
+    });
   }
 
   public render(): void {

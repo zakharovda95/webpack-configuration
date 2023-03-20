@@ -1,6 +1,9 @@
 import { hyperScript } from '../../../helpers/lib/hyper-script.method';
 import TaskListItemComponent from '../task-list-item/TaskListItem.component';
-import { ITaskData } from '../../../helpers/interfaces/task-data.interface';
+import {
+  ITaskData,
+  ITaskFormData,
+} from '../../../helpers/interfaces/task-data.interface';
 import { ITaskList } from '../../../helpers/interfaces/app.interface';
 import { mockDataConstants } from '../../../helpers/constants/mock-data.constants';
 import { getLocaleDateNow } from '../../../helpers/lib/get-locale-date-now.method';
@@ -35,8 +38,13 @@ export default class TaskListComponent implements ITaskList {
     });
   }
 
-  public add(task: ITaskData): void {
-    this.taskList.push(task);
+  public add(task: ITaskFormData): void {
+    const taskData: ITaskData = {
+      ...task,
+      id: this.taskList.length + 1,
+      date: getLocaleDateNow('ru'),
+    };
+    this.taskList.push(taskData);
     this.render();
   }
 

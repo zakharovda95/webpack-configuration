@@ -46,3 +46,8 @@ export interface ITaskList extends IRenderComponent {
 export interface INewTaskForm extends IComponent {
   createTask(): ITaskFormData;
 }
+
+export interface INewTaskFormModal extends IRenderComponent {
+  taskData: null | ITaskFormData;
+  task: null | ITaskFormData;
+}
