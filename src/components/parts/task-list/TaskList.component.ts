@@ -5,14 +5,6 @@ import { ITaskList } from '../../../helpers/interfaces/app.interface';
 import { mockDataConstants } from '../../../helpers/constants/mock-data.constants';
 import { getLocaleDateNow } from '../../../helpers/lib/get-locale-date-now.method';
 
-const mockDataItem: ITaskData = {
-  id: 3,
-  important: false,
-  title: 'Какая то не очень важная задача',
-  text: 'Работать в поте лица весь день',
-  date: getLocaleDateNow('ru'),
-};
-
 export default class TaskListComponent implements ITaskList {
   private taskList: ITaskData[] = mockDataConstants;
   private readonly taskListProxy: ITaskData[];
