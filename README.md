@@ -1,11 +1,12 @@
-# Ручная кофигурация вебпака
+# Ручная кофигурация Webpack + Jest 
 
 ### посмотреть конфигурацию: webpack.config.js - в корне проекта
 
 ### если вдруг кто то будет разворачивать то установка: 
-* npm i, npm run dev - дев npm run build - прод
+* npm i, npm run dev - дев npm run build - прод npm run test - тестирование
 
 ## В данной сборке было настроено:
+* Тестирование на Jest + Jest-Enviroment-JSDOM
 * Babel
 * TypeScript
 * SASS LESS
