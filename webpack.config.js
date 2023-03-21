@@ -7,7 +7,6 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 const ESLintWebpackPlugin = require('eslint-webpack-plugin');
-// const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const isDev = process.env.NODE_ENV === 'development';
 const isProd = !isDev;
@@ -63,7 +62,7 @@ const babelLoaders = extra => {
 };
 
 const plugins = () => {
-  const base = [
+  return [
     new HTMLWebpackPlugin({
       template: './index.html',
       // минификация хтмл
@@ -89,13 +88,6 @@ const plugins = () => {
     // вместо еслинт-лоадера (он устарел)
     new ESLintWebpackPlugin(),
   ];
-
-  // какая то фигня для анализа бандлов, не обязательно в конфигурации
-  // if (isProd) {
-  //   base.push(new BundleAnalyzerPlugin());
-  // }
-
-  return base;
 };
 
 module.exports = {
