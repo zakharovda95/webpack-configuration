@@ -1,6 +1,7 @@
 # Ручная кофигурация Webpack + Jest + Docker
 
-### посмотреть конфигурацию: webpack.config.js - в корне проекта
+### посмотреть конфигурацию Webpack: webpack.config.js - в корне проекта
+### посмотреть конфигурацию Docker: Dockerfile - в корне проекта
 
 ### если вдруг кто то будет разворачивать: 
 * npm i, npm run dev - дев npm run build - прод npm run test - тестирование
