@@ -7,7 +7,7 @@ export default class HeaderComponent {
     this.header = this.createElement();
   }
 
-  private createElement(): Element {
+  protected createElement(): Element {
     return hyperScript(`
     <nav class="navbar navbar-expand navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Simple TODO App!</a>
