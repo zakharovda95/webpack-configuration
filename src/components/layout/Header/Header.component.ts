@@ -1,6 +1,6 @@
 import { hyperScript } from '../../../helpers/lib/hyper-script.method';
 import './Header.component.scss';
-export default class HeaderComponent {
+export class HeaderComponent {
   private readonly header: Element;
 
   constructor() {

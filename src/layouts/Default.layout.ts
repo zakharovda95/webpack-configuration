@@ -1,5 +1,5 @@
 import { hyperScript } from '../helpers/lib/hyper-script.method';
-import HeaderComponent from '../components/layout/Header/Header.component';
+import {HeaderComponent} from '../components/layout/Header/Header.component';
 import TaskListComponent from '../components/parts/task-list/TaskList.component';
 import { IDefaultLayout } from '../helpers/interfaces/app.interface';
 import NewTaskFormModalComponent from '../components/parts/new-task-form-modal/NewTaskFormModal.component';

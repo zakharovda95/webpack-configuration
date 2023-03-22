@@ -2,5 +2,10 @@ module.exports = {
   clearMocks: true,
   testEnvironment: 'jsdom',
   verbose: true,
-  moduleFileExtensions: ['mjs', 'js', 'ts'],
+
+  transform: {
+    '^.+\\.ts?$': 'ts-jest',
+    '^.+\\.(js|jsx)$': 'babel-jest',
+    '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub'
+  },
 };
