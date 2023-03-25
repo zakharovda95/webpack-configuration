@@ -1,5 +1,5 @@
 import { ITaskData, ITaskFormData } from './task-data.interface';
-import HeaderComponent from '../../components/layout/Header/Header.component';
+import { HeaderComponent } from '../../components/layout/Header/Header.component';
 import TaskListComponent from '../../components/parts/task-list/TaskList.component';
 
 export interface IApp {
@@ -7,9 +7,7 @@ export interface IApp {
 }
 
 export interface IComponent {
-  component: Element;
   Element: Element;
-  createElement(): Element;
 }
 
 export interface ILayout extends IComponent {
@@ -48,6 +46,5 @@ export interface INewTaskForm extends IComponent {
 }
 
 export interface INewTaskFormModal extends IRenderComponent {
-  taskData: null | ITaskFormData;
   task: null | ITaskFormData;
 }

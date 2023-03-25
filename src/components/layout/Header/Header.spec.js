@@ -15,8 +15,7 @@ describe('Header', () => {
     expect(header).toBeInstanceOf(HeaderComponent);
   });
 
-  test('should return element width tag "nav"', () => {
-    const elemTagName = header.Element.tagName.toLowerCase();
-    expect(elemTagName).toBe('nav');
+  test('should include all elements', () => {
+    expect(header).toMatchSnapshot();
   });
 });

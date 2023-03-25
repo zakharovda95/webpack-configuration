@@ -1,9 +1,9 @@
 import { INewTaskFormModal } from '../../../helpers/interfaces/app.interface';
-import ModalComponent from '../../UI/Modal.component';
+import { ModalComponent } from '../../UI/Modal.component';
 import NewTaskFormComponent from '../new-task-form/NewTaskForm.component';
 import { ITaskFormData } from '../../../helpers/interfaces/task-data.interface';
 
-export default class NewTaskFormModalComponent implements INewTaskFormModal {
+export class NewTaskFormModalComponent implements INewTaskFormModal {
   private readonly component: Element;
   private taskData: null | ITaskFormData;
 

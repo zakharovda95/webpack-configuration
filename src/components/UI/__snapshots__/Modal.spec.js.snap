@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should include all elements 1`] = `
+ModalComponent {
+  "component": <div
+    aria-hidden="true"
+    aria-labelledby="exampleModalCenterTitle"
+    class="modal fade"
+    id="exampleModalCenter"
+    role="dialog"
+    tabindex="-1"
+  >
+    
+        
+    <div
+      class="modal-dialog modal-dialog-centered"
+      role="document"
+    >
+      
+            
+      <div
+        class="modal-content"
+      >
+        
+                
+        <div
+          class="modal-header"
+        >
+          
+                    
+          <h5
+            class="modal-title"
+            id="exampleModalLongTitle"
+          >
+            Новый таск
+          </h5>
+          
+                
+        </div>
+        
+                
+        <div
+          class="modal-body"
+        >
+          
+                  
+                
+        </div>
+        
+            
+      </div>
+      
+        
+    </div>
+    
+    
+  </div>,
+}
+`;

@@ -1,7 +1,7 @@
 import { IComponent } from '../../helpers/interfaces/app.interface';
 import { hyperScript } from '../../helpers/lib/hyper-script.method';
 
-export default class ModalComponent implements IComponent {
+export class ModalComponent implements IComponent {
   private readonly component: Element;
 
   constructor() {
